@@ -180,6 +180,15 @@
                 {% endfor %}
               </div>
             {% endunless %}
+            <div class="product-form__controls-group">
+              {% for option in product.options_with_values %}
+              <div class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
+                      id="SingleOptionSelector-{{ forloop.index0 }}"
+                      data-index="option{{ forloop.index }}">
+                {{ option.name }}
+              </div>
+              {% endfor %}
+            </div>
 
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}
