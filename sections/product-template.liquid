@@ -161,9 +161,9 @@
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
             {{ form | payment_terms }}
         
-        	{% if product.available and product.variants.size > 1 %}
+        	{% unless product.has_only_default_variant %}
               {% render 'swatch' for product.options as swatch %}
-            {% endif %}
+            {% endunless %}
 
             {% unless product.has_only_default_variant %}
               <div class="product-form__controls-group">
